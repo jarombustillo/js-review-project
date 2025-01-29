@@ -10,14 +10,14 @@ const todoList = document.getElementById('todo-list');
 
 // Function to render todos
 function renderTodos() {
-    todoList.innerHTML = '' // Clear the list
+    todoList.innerHTML = ''; // Clear the list
     todos.forEach((todo, index) =>{
         const li = document.createElement('li');
         li.className = 'todo-item';
         li.innerHTML = `
             <span>${todo}</span>
-            <button onclick="editTodo(${index})">Edit</button>
-            <button onclick="deleteTodo(${index})">Delete</button>
+            <button class ="edit" onclick="editTodo(${index})">Edit</button>
+            <button class ="delete" onclick="deleteTodo(${index})">Delete</button>
         `;
         todoList.appendChild(li);  
     }
@@ -54,7 +54,7 @@ function deleteTodo(index) {
 }
 
 // Event Listeners
-todoForm.addEventListeners('submit', addTodo);
+todoForm.addEventListener('submit', addTodo);
 
 // Initial Render
 renderTodos();
